@@ -13,20 +13,17 @@
 **/
 public class add_digits {
 	static int getSingleDigit (int num){
-		if (num <= 9){
-			return num;
-		}
 		int sum=0;
-		while(num>9){
-			sum = sum + num%10;
+		while(num>0){
+			int last_digit = num%10;
+			sum = sum + last_digit;
 			num = num/10;
 		}
-		sum = sum+num%10;
-
 		if (sum > 9) {
-			sum=getSingleDigit(sum);
+			return getSingleDigit(sum);
+		} else {
+			return sum;
 		}
-		return sum;
 	}
 
 	public static void main(String[] args){
