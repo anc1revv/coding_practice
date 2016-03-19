@@ -13,22 +13,25 @@
 **/
 public class add_digits {
 	static int getSingleDigit (int num){
+		if (num <= 9){
+			return num;
+		}
 		int sum=0;
 		while(num>9){
 			sum = sum + num%10;
 			num = num/10;
 		}
 		sum = sum+num%10;
+
+		if (sum > 9) {
+			sum=getSingleDigit(sum);
+		}
 		return sum;
 	}
 
 	public static void main(String[] args){
-		int num = 382;
-		int sum_num = getSingleDigit(num);
-		while (sum_num>9){
-			sum_num = getSingleDigit(sum_num);
-		}
-		System.out.println(sum_num);
+		int num = 19;
+		System.out.println(getSingleDigit(num));
 	}
 }
 
