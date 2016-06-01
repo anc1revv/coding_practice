@@ -40,11 +40,11 @@ def create_delta0_table():
 
     create_csv(user_dict,'base_table.csv')
 
-def dedupe_table(base_table,delta1, delta2, delta3, delta4):
+def dedupe_table(*file_names):
     files = locals().values()
     deduped_table = {}
 
-    for f in files:
+    for f in file_names:
         pick_latest_batch(deduped_table,f)
 
     create_csv(deduped_table,'deduped_table.csv') 
@@ -94,7 +94,7 @@ def main():
     #print users_spent_over_twothousand('AIQ_Broken_table.csv')
 
     #AIQ_Broken_table
-    dedupe_table('delta0.csv','delta1.csv','delta2.csv','delta3.csv','delta4.csv')
+    dedupe_table('delta0.csv','delta1.csv','delta2.csv','delta4.csv')
     '''create_base_table()
     create_delta1_table()
     create_delta2_table()
