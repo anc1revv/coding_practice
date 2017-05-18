@@ -1,0 +1,1 @@
+'''Given a string list return all the anagrams formed by them'''
